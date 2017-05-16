@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<table valign="top">
+  <td><img src="{{ post.author.profile_img }}" width="64" height="64"></td>
+  <td><i><a href="{{ url_for('user', nickname=post.author.nickname) }}">{{ post.author.nickname }}</a> says at {{ post.timestamp }}:</i><br>
+      {{ post.body }}<br>
+      <a href="{{ url_for('post', id=post.id) }}">Permalink</a>
+      <a href="{{ url_for('edit_post', id=post.id) }}">Edit</a>
+  </td>
+</table>
+</html>

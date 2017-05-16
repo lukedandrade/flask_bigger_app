@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+<html>
+  {% extends "base.html" %}
+  {% block content %}
+    {% if error_code %}<h1>{{ error_code }}</h1>{% else %}<h1>Erro desconhecido</h1>{% endif %}
+  {% endblock %}
+</html>

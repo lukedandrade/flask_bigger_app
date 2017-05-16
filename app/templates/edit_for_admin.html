@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+{% extends "base.html" %}
+{% block content %}
+  <table>
+      <tr valign="top">
+        <td><img src="{{ user.profile_img }}" height="128" width="128"></td>
+        <td>
+          <h1>User: {{ user.nickname }}</h1>
+          {% if user.about_me %}<p>About me: {{ user.about_me }}</p>{% endif %}
+          {% if user.last_seen %}<p>Last seen on: {{ user.last_seen }}</p>{% endif %}
+          {% if user.email %}<p>Email: {{ user.email }}</p>{% endif %}
+          {% if user.role_id %}<p>Role: {{ user.role_id }}</p>{% endif %}
+        </td>
+      </tr>
+  </table>
+  <h1>Edit His/Hers profile</h1>
+  <form action="" method="post" name="edit_for_admin">
+    {{ form.hidden_tag() }}
+    <table>
+      <tr>
+        <td>His/Hers nickname:</td>
+        <td>{{ form.nickname(size=40) }}</td>
+      </tr>
+      <tr>
+        <td>About him/her:</td>
+        <td>{{ form.about_me(cols=32, rows=4) }}</td>
+      </tr>
+      <tr>
+        <td>His/Hers email</td>
+        <td>{{ form.email(size=40) }}</td>
+      </tr>
+      <tr>
+        <td>His/Hers role id</td>
+        <td>{{ form.role_id(size=40) }}</td>
+      </tr>
+      <tr>
+        <td>His/Hers profile photo's link</td>
+        <td>{{ form.img_link(size=80) }}</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input type="submit" value="Save Changes"></td>
+      </tr>
+    </table>
+  </form>
+{% endblock %}
+</html>

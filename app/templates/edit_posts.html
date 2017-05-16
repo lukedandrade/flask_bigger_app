@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  {% extends "base.html" %}
+  {% block content %}
+  {% include "posts.html" %}
+  <form action="" method="post" name="editpost">
+    {{ form.hidden_tag() }}
+    <p>
+      New post:<br>
+      {{ form.new_body() }}<br>
+      {% for error in form.new_body.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}<br>
+    </p>
+    <p><input type="submit" value="Submit"></p>
+  </form>
+  {% endblock %}
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  {% extends "base.html" %}
+  {% block content %}
+    <h1>Sign In</h1>
+    <form action="" method="post" name="register">
+      {{ form.hidden_tag() }}
+      <p>
+        Plese enter your nickname:<br>
+        {{ form.nickname(size=80) }}<br>
+        {% for error in form.nickname.errors %}
+          <span style="color:red;">[{{ error }}]</span>
+        {% endfor %}<br>
+        Please enter your email:<br>
+        {{ form.email(size=80) }}<br>
+        {% for error in form.email.errors %}
+          <span style="color:red;">[{{ error }}]</span>
+        {% endfor %}<br>
+        Please enter your password:<br>
+        {{ form.password(size=80) }}<br>
+        {% for error in form.password.errors %}
+          <span style="color:red;">[{{ error }}]</span>
+        {% endfor %}<br>
+        Please confirm your password:<br>
+        {{ form.c_password(size=80) }}<br>
+        {% for error in form.c_password.errors %}
+          <span style="color:red;">[{{ error }}]</span>
+        {% endfor %}<br>
+        Please put an image link:<br>
+        {{ form.img_link(size=80) }}<br>
+        {% for error in form.img_link.errors %}
+          <span style="color:red;">[{{ error }}]</span>
+        {% endfor %}<br>
+      </p>
+      <p><input type="submit" value="Sign In"></p>
+    </form>
+  {% endblock %}
+</html>

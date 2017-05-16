@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  {% extends "base.html" %}
+  {% import "pagination.html" as macros %}
+  {% block content %}
+    <h1>Hi, {{ user.nickname }}!</h1>
+    {% if current_user.can(permission.WRITE_ARTICLES) %}
+      <form action="" method="post" name="post">
+        {{ form.hidden_tag() }}
+        <p>
+          New Post:<br>
+          {{ form.body(size=240) }}<br>
+          {% for error in form.body.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}<br>
+        </p>
+        <p><input type="submit" value="Submit"></p>
+      </form>
+    {% endif %}
+    {%for post in posts %}
+      {% include 'posts.html' %}
+    {% endfor %}
+    <div>
+      {{ macros.pagination_widget(pagination, '.index') }}
+    </div>
+  {% endblock %}
+</html>
